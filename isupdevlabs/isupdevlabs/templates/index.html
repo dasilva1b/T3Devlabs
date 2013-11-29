@@ -1,0 +1,29 @@
+<html>
+<head>
+        <meta charset='utf-8'>
+        <link rel='stylesheet' href='{{STATIC_URL}}css/base.css'>
+        {% block style_css %}{% endblock %}
+</head>
+<body>
+    <h1 style="text-align:center"> Alternativa a ISUP.ME </h1>
+
+    <div id="formulario" style="text-align:center">
+      <form action="/consultarpagina/" method="post">
+      {% csrf_token %}
+      <p> Protocolo <select name="protocol">
+          <option value="http://"> HTTP </option>
+          <option value="https://"> HTTPS </option>
+          </select>
+      </p>
+      <p> Pagina: <input type="text" name="pagina" value="www.example.com"></p>
+      <p> <input type="submit" class="button" value="Consultar"></p>
+      </form>
+  </div>
+
+
+    <hr></hr>
+    <footer>
+        <p> Carlos Da Silva</p>
+    </footer>
+</body>
+</html>
