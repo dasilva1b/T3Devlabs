@@ -29,8 +29,9 @@ def consultar_pagina(request):
   pagina=request.POST['pagina'];
   protocolo=request.POST['protocol'];
   
-  #Le agregamos el protocolo
-  pagina=protocolo+pagina;
+  if (not('http://' in pagina)):
+    #Le agregamos el protocolo
+    pagina=protocolo+pagina;
     
   try:
     estado=urllib2.urlopen(pagina,timeout=8).getcode()
